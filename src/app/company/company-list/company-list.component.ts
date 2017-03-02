@@ -23,6 +23,18 @@ export class CompanyListComponent implements OnInit {
     // this.companies$ = this.companyService.getCompanies(); 
     // when have an observable put $ on it
     this.companyService.getCompanies()
-    .subscribe(companies => this.companies = companies);
+    .subscribe( (companies) =>  { return this.companies = companies; });
+    // .subscribe(companies => return this.companies = companies);
+    // subscribe takes a callback function as a parameter.  Pass companies as a parameter to the callback function
+  }
+
+  deleteCompany(companyId: number) {
+    this.companyService.deleteCompany(companyId)
+    .subscribe(() => this.getCompanies());
+
   }
 }
+
+// companies => this.companies = companies
+// (companies) => { return this.companies = companies }
+// function (companies) { return this.companies = companies }
