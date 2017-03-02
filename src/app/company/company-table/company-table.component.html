@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--<tr *ngFor="let company of companies$ | async" >-->
+    <tr *ngFor="let company of companiesList" >
+      <td>{{company?.id}}</td>
+      <td>{{company.name}}</td>
+      <td>{{company.email}}</td>
+      <td>{{company.phone}}</td>
+      <td class="company-row">
+          <button class="btn bt-default">Edit</button>
+          <button class="btn bt-default" (click)="deleteCompanyEvent.next(company.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
