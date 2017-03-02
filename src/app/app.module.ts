@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { CompanyService } from './company/company.service';
 import { AppComponent } from './app.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
 
@@ -16,7 +17,8 @@ import { CompanyListComponent } from './company/company-list/company-list.compon
     FormsModule,
     HttpModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CompanyService],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

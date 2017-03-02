@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../company';
+import { CompanyService } from '../company.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-company-list',
@@ -7,9 +9,10 @@ import { Company } from '../company';
   styleUrls: ['./company-list.component.css']
 })
 export class CompanyListComponent implements OnInit {
+  //companies$: Observable<Company[]>;
   companies: Company[];
 
-  constructor() { }
+  constructor(private companyService: CompanyService) { }
 
   ngOnInit() {
     this.getCompanies();
@@ -17,10 +20,9 @@ export class CompanyListComponent implements OnInit {
 
   getCompanies(): void {
     // initialises the Companies
-    this.companies = [
-      {name: 'company 1', email: 'email 1', phone: 111},
-      {name: 'company 2', email: 'email 2', phone: 211},
-      {name: 'company 3', email: 'email 3', phone: 311}
-    ];
+    // this.companies$ = this.companyService.getCompanies(); 
+    // when have an observable put $ on it
+    this.companyService.getCompanies()
+    .subscribe(companies => this.companies = companies);
   }
 }
