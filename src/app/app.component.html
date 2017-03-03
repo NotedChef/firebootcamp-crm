@@ -1,14 +1,13 @@
-
-<nav class="navbar navbar-default">  
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/">FireBootCamp CRM</a>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a routerLink="/company/list">Companies</a>
-      </li>
+<nav class="navbar navbar-default navbar-fixed-top">  
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/home">FireBootCamp Angular - CRM</a>
+    </div>
+    <ul class="nav navbar-nav pull-right">
+      <li><a routerLink="/company/list">Companies</a></li>
     </ul>
   </div>
 </nav>  
-<div class="container">  
-  <router-outlet></router-outlet>
+<div class="container main-container">  
+   <router-outlet></router-outlet>
 </div>  

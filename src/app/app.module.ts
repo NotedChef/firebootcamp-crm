@@ -15,10 +15,7 @@ import { CompanyEditComponent } from './company/company-edit/company-edit.compon
 @NgModule({
   declarations: [
     AppComponent,
-    CompanyListComponent,
-    CompanyTableComponent,
-    Error404Component,
-    CompanyEditComponent
+    Error404Component
   ],
   imports: [
     BrowserModule,
