@@ -22,10 +22,10 @@ export class CompanyEditComponent implements OnInit {
   ngOnInit() {
     this.companyId = this.activatedRoute.snapshot.params['id'];
     this.isNewCompany = this.companyId === 'new';
-    if (!this.isNewCompany) {
-      //get company from API
-    }
     this.buildForm();
+    if (!this.isNewCompany) {
+      this.getCompany();
+    }
   }
 
   buildForm() { // create in memory model of what company form looks like
@@ -40,7 +40,20 @@ export class CompanyEditComponent implements OnInit {
     if (this.isNewCompany) {
       this.companyService.addCompany(this.companyForm.value)
         .subscribe(() => this.router.navigateByUrl('/company/list'));
+    } else {
+      const newCompany = Object.assign({}, {id: this.companyId}, this.companyForm.value);
+      this.companyService.updateCompany(newCompany)
+        .subscribe(() => this.router.navigateByUrl('/company/list'));
     }
+  }
+
+  getCompany() {
+    this.companyService.getCompany(this.companyId)
+    .subscribe(
+      company => {
+        this.companyForm.patchValue(company);
+      }
+    )
   }
 
 
