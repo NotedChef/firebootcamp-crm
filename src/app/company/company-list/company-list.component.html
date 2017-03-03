@@ -1,4 +1,4 @@
 <h1>Companies
-  <button class="btn btn-success pull-right">Add</button>
+  <button class="btn btn-success pull-right" routerLink="/company/edit/new">Add</button>
 </h1>
 <app-company-table [companiesList]="companies" (deleteCompanyEvent)="deleteCompany($event)"></app-company-table>

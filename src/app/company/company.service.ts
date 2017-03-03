@@ -2,6 +2,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
+import { Company } from './company';
 
 @Injectable()
 export class CompanyService {
@@ -24,6 +25,14 @@ export class CompanyService {
   deleteCompany(companyId: number) {
      return this.http.delete(`${this.API_BASE}/company/${companyId}`)
      .map(data => data.json());
+  }
+
+  addCompany(company: Company) {
+    const headers = new Headers({ 'content-type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this.http.post(`${this.API_BASE}/company`, JSON.stringify(company), options)
+      .map(response => response.json())
+      .catch(this.errorHandler); // must remember to import map operator from rxjs/Rx
   }
 
 }
