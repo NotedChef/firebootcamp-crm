@@ -3,6 +3,7 @@ import { CompanyListComponent } from './company-list/company-list.component';
 import { CompanyEditComponent } from './company-edit/company-edit.component';
 
 export const companyRoutes: Routes = [
-    {path: 'company/list', component: CompanyListComponent},
-    {path: 'company/edit/:id', component: CompanyEditComponent},
+    {path: '', redirectTo: 'list', pathMatch: 'full'},
+    {path: 'list', component: CompanyListComponent},
+    {path: 'edit/:id', component: CompanyEditComponent}
 ]

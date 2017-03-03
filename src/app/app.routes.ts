@@ -7,8 +7,6 @@ import { Routes } from '@angular/router';
 export const appRoutes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', loadChildren: 'app/home/home.module#HomeModule'},
-    {path: 'company/list', loadChildren: 'app/company/company.module#CompanyModule'}
-    //{path: 'company/list', component: CompanyListComponent},
-    //{path: 'company/edit/:id', component: CompanyEditComponent},
+    {path: 'company', loadChildren: 'app/company/company.module#CompanyModule'},
     {path: '**', component: Error404Component}
 ];
